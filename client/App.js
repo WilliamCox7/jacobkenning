@@ -1,15 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component, cloneElement } from 'react';
+import Nav from './components/Nav/Nav';
 import './reset.scss';
 import './main.scss';
-import './src/jacobkenning-icons/css/jacobkenning.scss';
 
 class App extends Component {
 
   render() {
+
+    var childrenWithProps = cloneElement(
+      this.props.children, {isUser: false}
+    );
+
     return (
-      <div className="App">
-        {this.props.children}
-      </div>
+      <section className="App">
+        <Nav router={this.props.router} />
+        {childrenWithProps}
+      </section>
     )
   }
 }

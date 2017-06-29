@@ -1,0 +1,70 @@
+@import "../../vars.scss";
+
+.Nav {
+  margin-top: 30px;
+  .nav-logo {
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    img {
+      width: 33px;
+    }
+  }
+  .nav-name {
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    img {
+      width: 190px;
+    }
+  }
+  .tabs {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    color: $navblack;
+    font-size: 17px;
+    padding: 15px 50px;
+    .nav-active {
+      border-bottom: solid 3px $jakegold;
+    }
+    span {
+      font-weight: bold;
+      padding: 10px 0px;
+      &:hover {
+        border-bottom: solid 3px $jakegold;
+        cursor: pointer;
+      }
+    }
+  }
+  .nav-arrows {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 10px 50px 20px;
+    .arrow {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      width: 45px;
+      height: 17px;
+      img {
+        width: 12px;
+      }
+      p {
+        font-size: 14px;
+        color: $contentgray;
+      }
+    }
+  }
+}
