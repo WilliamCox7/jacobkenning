@@ -2,6 +2,7 @@
 
 .Nav {
   margin-top: 30px;
+  max-width: 850px;
   .nav-logo {
     width: 100%;
     text-align: center;
@@ -11,9 +12,33 @@
     }
   }
   .nav-name {
-    width: 100%;
-    text-align: center;
-    padding: 5px;
+    width: 190px;
+    padding: 5px 0px;
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    .nav-social-media {
+      width: 144px;
+      height: 25px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      margin-left: 60px;
+      display: none;
+      img {
+        width: 25px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
     img {
       width: 190px;
     }
@@ -41,29 +66,50 @@
       }
     }
   }
-  .nav-arrows {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding: 10px 50px 20px;
-    .arrow {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
-      width: 45px;
-      height: 17px;
+}
+
+@media (min-width: 600px) {
+  .Nav {
+    width: calc(100% - 40px);
+    margin: 30px auto;
+    position: relative;
+    .nav-logo {
+      width: initial;
+      text-align: initial;
+      padding: initial;
+      position: absolute;
+      left: 0;
       img {
-        width: 12px;
+        width: 20px;
       }
-      p {
-        font-size: 14px;
-        color: $contentgray;
+    }
+    .nav-name {
+      width: initial;
+      text-align: initial;
+      position: absolute;
+      right: 0;
+    }
+    .tabs {
+      width: 230px;
+      padding: initial;
+      margin-left: 80px;
+      span {
+        padding: 4px 0px 10px;
+      }
+    }
+  }
+}
+
+@media (min-width: 850px) {
+  .Nav {
+    margin: 30px auto;
+    .nav-name {
+      padding: 0px;
+      width: 404px;
+      .nav-social-media {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
       }
     }
   }

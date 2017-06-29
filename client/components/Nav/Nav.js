@@ -6,8 +6,6 @@ import goldin from '../../src/gold-in.svg';
 import goldtw from '../../src/gold-tw.svg';
 import logo from '../../src/logo.svg';
 import name from '../../src/name.svg';
-import prevarrow from '../../src/prev-arrow.svg';
-import nextarrow from '../../src/next-arrow.svg';
 import './Nav.scss';
 
 class Nav extends Component {
@@ -50,6 +48,8 @@ class Nav extends Component {
 
   render() {
 
+    var location = hashHistory.getCurrentLocation().pathname;
+
     return (
       <section className="Nav">
         <div className="nav-logo">
@@ -57,21 +57,17 @@ class Nav extends Component {
         </div>
         <div className="nav-name">
           <img src={name} />
+          <div className="nav-social-media">
+            <img src={goldfb} />
+            <img src={goldin} />
+            <img src={goldig} />
+            <img src={goldtw} />
+          </div>
         </div>
         <div className="tabs">
           <span onClick={this.redirect} id="span-work">work</span>
           <span onClick={this.redirect} id="span-blog">blog</span>
           <span onClick={this.redirect} id="span-about">about</span>
-        </div>
-        <div className="nav-arrows">
-          <div className="arrow">
-            <img src={prevarrow} />
-            <p>prev</p>
-          </div>
-          <div className="arrow">
-            <p>next</p>
-            <img src={nextarrow} />
-          </div>
         </div>
       </section>
     )
