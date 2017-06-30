@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import WorkPost from './WorkPost';
+import WorkPostDesktop from './WorkPostDesktop';
 import nextarrow from '../../src/next-arrow.svg';
 import './WorkDesktop.scss';
 
@@ -7,15 +7,11 @@ class WorkDesktop extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      work: this.props.isHome,
-      index: undefined
-    }
     this.selectPost = this.selectPost.bind(this);
   }
 
-  selectPost(post, i) {
-    this.setState({work: post, index: i});
+  selectPost(post) {
+    this.props.storeWork(post);
     this.props.goHome(false);
   }
 
@@ -54,7 +50,7 @@ class WorkDesktop extends Component {
               {initHeader}
             </div>
             <p className="init-para">{initPara.substring(0, 350)}...</p>
-            <p onClick={() => { this.selectPost(post, i); }} className="case-link">
+            <p onClick={() => { this.selectPost(post); }} className="case-link">
               See case study
               <img src={nextarrow} />
             </p>
@@ -66,7 +62,7 @@ class WorkDesktop extends Component {
     return (
       <section className="WorkDesktop">
         {this.props.isHome ? (posts) : (
-          <WorkPost work={this.state.work} />
+          <WorkPostDesktop work={this.props.curWork} />
         )}
       </section>
     )

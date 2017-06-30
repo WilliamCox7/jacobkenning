@@ -1,41 +1,34 @@
 import React, { Component } from 'react';
 import prevarrow from '../../src/prev-arrow.svg';
 import nextarrow from '../../src/next-arrow.svg';
-import WorkPost from './WorkPost';
+import WorkPostMobile from './WorkPostMobile';
 import './WorkMobile.scss';
 
 class WorkMobile extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      work: this.props.isHome,
-      index: undefined
-    }
     this.selectPost = this.selectPost.bind(this);
     this.prev = this.prev.bind(this);
     this.next = this.next.bind(this);
   }
 
   selectPost(post, i) {
-    this.setState({work: post, index: i});
+    this.props.updWorkIndex(i);
+    this.props.storeWork(post);
     this.props.goHome(false);
   }
 
   prev() {
-    var newIndex = this.state.index-1;
-    this.setState({
-      work: this.props.works[newIndex],
-      index: newIndex
-    });
+    var newIndex = this.props.workIndex-1;
+    this.props.updWorkIndex(newIndex);
+    this.props.storeWork(this.props.works[newIndex]);
   }
 
   next() {
-    var newIndex = this.state.index+1;
-    this.setState({
-      work: this.props.works[newIndex],
-      index: newIndex
-    });
+    var newIndex = this.props.workIndex+1;
+    this.props.updWorkIndex(newIndex);
+    this.props.storeWork(this.props.works[newIndex]);
   }
 
   render() {
@@ -85,7 +78,7 @@ class WorkMobile extends Component {
         {location !== "/about" && !this.props.isHome ? (
           <div className="nav-arrows">
             <div className="arrow">
-              {this.state.index > 0 ? (
+              {this.props.workIndex > 0 ? (
                 <span onClick={this.prev}>
                   <img src={prevarrow} />
                   <p>prev</p>
@@ -93,7 +86,7 @@ class WorkMobile extends Component {
               ) : (null)}
             </div>
             <div className="arrow">
-              {this.state.index < this.props.works.length-1 ? (
+              {this.props.workIndex < this.props.works.length-1 ? (
                 <span onClick={this.next}>
                   <p>next</p>
                   <img src={nextarrow} />
@@ -103,7 +96,7 @@ class WorkMobile extends Component {
           </div>
         ) : (null)}
         {this.props.isHome ? (posts) : (
-          <WorkPost work={this.state.work} />
+          <WorkPostMobile work={this.props.curWork} />
         )}
       </section>
     )

@@ -9,13 +9,25 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isHome: true
+      isHome: true,
+      curWork: undefined,
+      workIndex: undefined
     }
     this.goHome = this.goHome.bind(this);
+    this.storeWork = this.storeWork.bind(this);
+    this.updWorkIndex = this.updWorkIndex.bind(this);
   }
 
   goHome(bool) {
     this.setState({isHome: bool});
+  }
+
+  storeWork(work) {
+    this.setState({curWork: work});
+  }
+
+  updWorkIndex(i) {
+    this.setState({workIndex: i});
   }
 
   render() {
@@ -24,7 +36,11 @@ class App extends Component {
       this.props.children, {
         isUser: false,
         isHome: this.state.isHome,
-        goHome: this.goHome
+        goHome: this.goHome,
+        curWork: this.state.curWork,
+        storeWork: this.storeWork,
+        workIndex: this.state.workIndex,
+        updWorkIndex: this.updWorkIndex
       }
     );
 
