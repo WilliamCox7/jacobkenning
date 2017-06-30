@@ -1,5 +1,6 @@
 import React, { Component, cloneElement } from 'react';
 import Nav from './components/Nav/Nav';
+import Footer from './components/Footer/Footer';
 import './reset.scss';
 import './main.scss';
 
@@ -15,6 +16,7 @@ class App extends Component {
       <section className="App">
         <Nav router={this.props.router} />
         {childrenWithProps}
+        <Footer />
       </section>
     )
   }
