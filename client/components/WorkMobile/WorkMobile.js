@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import prevarrow from '../../src/prev-arrow.svg';
 import nextarrow from '../../src/next-arrow.svg';
+import WorkPost from './WorkPost';
 import './WorkMobile.scss';
 
 class WorkMobile extends Component {
@@ -8,36 +9,70 @@ class WorkMobile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      home: true,
-      work: undefined,
-      works: [
-        {
-          heading: 'Test Heading',
-          cover: 'https://static01.nyt.com/images/2010/11/04/business/1104Bucks-GasNozzle/1104Bucks-GasNozzle-blogSpan.jpg',
-          p1: 'Clean, friendly convenience. Good 2 Go Stores provides a family-friendly destination for travelers to refuel and restock on snacks, beverages, and other convenience items. Our bathrooms are clean, our staff are friendly, and our product offerings bathrooms are clean, our staff are friendly, and our product offerings.'
-        },
-        {
-          heading: 'Test Heading',
-          cover: 'https://static01.nyt.com/images/2010/11/04/business/1104Bucks-GasNozzle/1104Bucks-GasNozzle-blogSpan.jpg',
-          p1: 'Clean, friendly convenience. Good 2 Go Stores provides a family-friendly destination for travelers to refuel and restock on snacks, beverages, and other convenience items. Our bathrooms are clean, our staff are friendly, and our product offerings bathrooms are clean, our staff are friendly, and our product offerings.'
-        }
-      ]
+      work: this.props.isHome,
+      index: undefined
     }
+    this.selectPost = this.selectPost.bind(this);
+    this.prev = this.prev.bind(this);
+    this.next = this.next.bind(this);
+  }
+
+  selectPost(post, i) {
+    this.setState({work: post, index: i});
+    this.props.goHome(false);
+  }
+
+  prev() {
+    var newIndex = this.state.index-1;
+    this.setState({
+      work: this.props.works[newIndex],
+      index: newIndex
+    });
+  }
+
+  next() {
+    var newIndex = this.state.index+1;
+    this.setState({
+      work: this.props.works[newIndex],
+      index: newIndex
+    });
   }
 
   render() {
 
-    var posts = this.state.works.map((post, i) => {
+    var posts = this.props.works.map((post, i) => {
+
+      var initHeader, initPara, hasImg;
+      var initImg = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png";
+      post.forEach((item) => {
+        if (!hasImg) {
+          if (item.type === 'image') {
+            initImg = item.content;
+            hasImg = true;
+          }
+        }
+        if (!initHeader) {
+          if (item.type === 'header') {
+            initHeader = item.content;
+          }
+        }
+        if (!initPara) {
+          if (item.type === 'paragraph') {
+            initPara = item.content;
+          }
+        }
+      });
+
       return (
         <div key={i} className="post">
           <div className="post-heading">
-            {post.heading}
+            {initHeader}
           </div>
           <div className="post-cover">
-            <img src={post.cover} />
+            <img src={initImg} />
           </div>
-          <p className="init-para">{post.p1.substring(0, 350)}...</p>
-          <p className="case-link">
+          <p className="init-para">{initPara.substring(0, 350)}...</p>
+          <p onClick={() => { this.selectPost(post, i); }} className="case-link">
             See case study
             <img src={nextarrow} />
           </p>
@@ -47,19 +82,27 @@ class WorkMobile extends Component {
 
     return (
       <section className="WorkMobile">
-        {location !== "/about" && !this.state.home ? (
+        {location !== "/about" && !this.props.isHome ? (
           <div className="nav-arrows">
             <div className="arrow">
-              <img src={prevarrow} />
-              <p>prev</p>
+              {this.state.index > 0 ? (
+                <span onClick={this.prev}>
+                  <img src={prevarrow} />
+                  <p>prev</p>
+                </span>
+              ) : (null)}
             </div>
             <div className="arrow">
-              <p>next</p>
-              <img src={nextarrow} />
+              {this.state.index < this.props.works.length-1 ? (
+                <span onClick={this.next}>
+                  <p>next</p>
+                  <img src={nextarrow} />
+                </span>
+              ) : (null)}
             </div>
           </div>
         ) : (null)}
-        {this.state.home ? (posts) : (
+        {this.props.isHome ? (posts) : (
           <WorkPost work={this.state.work} />
         )}
       </section>

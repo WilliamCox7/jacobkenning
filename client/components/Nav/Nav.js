@@ -41,8 +41,15 @@ class Nav extends Component {
   }
 
   redirect(e) {
+    var location = hashHistory.getCurrentLocation().pathname;
     var route = e.target.innerText === 'work' ? '' : e.target.innerText;
-    this.props.router.push('/'+route);
+    route = '/'+route;
+    if (location !== route) {
+      this.props.router.push(route);
+      this.props.goHome(true);
+    } else {
+      this.props.goHome(true);
+    }
     this.showActive();
   }
 

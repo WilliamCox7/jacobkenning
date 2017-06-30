@@ -3,45 +3,47 @@
 .Footer {
   padding: 45px 50px 20px;
   background: $jakegold;
-  .footer-icons {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-bottom: 7px;
-    .footer-logo {
-      width: 20px;
-      height: 30px;
-    }
-    .footer-social-media {
-      width: 144px;
-      height: 25px;
+  margin-top: 80px;
+  .footer-container {
+    max-width: 850px;
+    margin: auto;
+    .footer-icons {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
-      margin-left: 15px;
-      img {
-        width: 25px;
-        &:hover {
-          cursor: pointer;
+      margin-bottom: 7px;
+      .footer-logo {
+        width: 20px;
+        height: 30px;
+      }
+      .footer-social-media {
+        width: 144px;
+        height: 25px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        margin-left: 15px;
+        img {
+          width: 25px;
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
     }
-  }
-  .copyright {
-    width: 100%;
-    color: white;
-    font-size: 12px;
+    .copyright {
+      width: 200px;
+      color: white;
+      font-size: 12px;
+    }
   }
 }
 
 @media (min-width: 600px) {
   .Footer {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
     padding: 30px 50px 20px;
     .footer-icons {
       -webkit-box-pack: justify;

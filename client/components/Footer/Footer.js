@@ -11,17 +11,19 @@ class Footer extends Component {
   render() {
     return (
       <section className="Footer">
-        <div className="footer-icons">
-          <img className="footer-logo" src={logo} />
-          <div className="footer-social-media">
-            <img src={whitefb} />
-            <img src={whitein} />
-            <img src={whiteig} />
-            <img src={whitetw} />
+        <div className="footer-container">
+          <div className="footer-icons">
+            <img className="footer-logo" src={logo} />
+            <div className="footer-social-media">
+              <img src={whitefb} />
+              <img src={whitein} />
+              <img src={whiteig} />
+              <img src={whitetw} />
+            </div>
           </div>
-        </div>
-        <div className="copyright">
-          Copyright© Jacob Kenning 2017
+          <div className="copyright">
+            Copyright© Jacob Kenning 2017
+          </div>
         </div>
       </section>
     )
