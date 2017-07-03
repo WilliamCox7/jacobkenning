@@ -11,11 +11,15 @@ class App extends Component {
     this.state = {
       isHome: true,
       curWork: undefined,
-      workIndex: undefined
+      workIndex: undefined,
+      curBlog: undefined,
+      blogIndex: undefined
     }
     this.goHome = this.goHome.bind(this);
     this.storeWork = this.storeWork.bind(this);
     this.updWorkIndex = this.updWorkIndex.bind(this);
+    this.storeBlog = this.storeBlog.bind(this);
+    this.updBlogIndex = this.updBlogIndex.bind(this);
   }
 
   goHome(bool) {
@@ -30,6 +34,14 @@ class App extends Component {
     this.setState({workIndex: i});
   }
 
+  storeBlog(blog) {
+    this.setState({curBlog: blog});
+  }
+
+  updBlogIndex(i) {
+    this.setState({blogIndex: i});
+  }
+
   render() {
 
     var childrenWithProps = cloneElement(
@@ -40,7 +52,11 @@ class App extends Component {
         curWork: this.state.curWork,
         storeWork: this.storeWork,
         workIndex: this.state.workIndex,
-        updWorkIndex: this.updWorkIndex
+        updWorkIndex: this.updWorkIndex,
+        curBlog: this.state.curBlog,
+        storeBlog: this.storeBlog,
+        blogIndex: this.state.blogIndex,
+        updBlogIndex: this.updBlogIndex
       }
     );
 

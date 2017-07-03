@@ -78,8 +78,6 @@ class Work extends Component {
 
   render() {
 
-    var location = hashHistory.getCurrentLocation().pathname;
-
     return (
       <section className="Work">
         {this.state.width > 600 ? (

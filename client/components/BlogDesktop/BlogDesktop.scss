@@ -1,0 +1,199 @@
+@import "../../vars.scss";
+
+.BlogDesktop {
+  position: relative;
+  .nav-arrows {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 10px 42px 20px;
+    .arrow {
+      span {
+        width: 50px;
+        height: 15px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        img {
+          width: 12px;
+        }
+        p {
+          font-size: 14px;
+          color: $jakegold;
+          font-family: 'Helvetica Neue Bold';
+        }
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .post {
+    max-width: 546px;
+    margin: auto;
+    .post-heading {
+      font-family: 'Helvetica Neue Bold';
+      padding: 10px 0px 20px 42px;
+      color: $headerblack;
+    }
+    .post-cover {
+      width: 100%;
+      text-align: center;
+      overflow: hidden;
+      img {
+        width: 100%;
+        max-width: 472px;
+      }
+    }
+    .post-date {
+      padding: 20px 42px 0px;
+      font-size: 10px;
+      color: $contentgray;
+    }
+    .init-para {
+      color: $contentgray;
+      padding: 11px 42px;
+      line-height: 22px;
+    }
+    .case-link {
+      font-weight: bold;
+      color: $jakegold;
+      margin: 5px 42px 30px;
+      padding-bottom: 20px;
+      border-bottom: solid 1px #949494;
+      img {
+        width: 8px;
+        margin-left: 55px;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .BlogPostDesktop {
+    max-width: 546px;
+    margin: auto;
+    h1 {
+      font-family: 'Helvetica Neue Bold';
+      padding: 0px 0px 20px 42px;
+      color: $headerblack;
+    }
+    p {
+      color: $contentgray;
+      padding: 0px 42px 20px 42px;
+      line-height: 22px;
+    }
+    .post-normal-photo {
+      width: 100%;
+      padding: 0px 42px 20px 42px;
+    }
+    .post-blog-date {
+      font-size: 10px;
+      color: $contentgray;
+      padding: 0px 42px 20px;
+    }
+    .gallery {
+      position: fixed;
+      margin: auto;
+      right: 0;
+      left: 0;
+      width: 850px;
+      top: 130px;
+      .gallery-pics {
+        width: 110px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        .gallery-header {
+          color: $contentgray;
+          font-size: 12px;
+          width: 100%;
+        }
+        span {
+          width: 52px;
+          height: 52px;
+          margin-bottom: 8px;
+          &:hover {
+            cursor: pointer;
+          }
+          img {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+    #modal {
+      display: none;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 2;
+      .modal-container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        span {
+          width: 55px;
+          height: 20px;
+          margin: 0px 20px;
+          color: $jakegold;
+          font-family: 'Helvetica Neue Bold';
+          &:hover {
+            cursor: pointer;
+          }
+          img {
+            width: 100%;
+          }
+        }
+        .prev-gallery {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: end;
+          -ms-flex-pack: end;
+          justify-content: flex-end;
+        }
+        .next-gallery {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .gallery {
+    display: none;
+  }
+}
