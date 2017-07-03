@@ -1,0 +1,43 @@
+@import "../../vars.scss";
+
+.About {
+  h1 {
+    font-family: 'Helvetica Neue Bold';
+    padding: 20px 42px;
+    color: $headerblack;
+  }
+  img {
+    width: 100%;
+  }
+  p {
+    padding: 10px 42px;
+    color: $contentgray;
+    line-height: 22px;
+  }
+  h2 {
+    color: $jakegold;
+    font-family: 'Helvetica Neue Bold';
+    padding: 10px 42px;
+  }
+}
+
+@media (min-width: 920px) {
+  .About {
+    .jake {
+      padding: 0px 42px 20px;
+    }
+    .about-desktop {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      max-width: 850px;
+      margin: auto;
+      .left-side {
+        width: 60%;
+      }
+      .right-side {
+        width: 40%;
+      }
+    }
+  }
+}
