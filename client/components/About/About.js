@@ -35,7 +35,7 @@ class About extends Component {
                 I’ve worked freelance and projects for clients of an internal creative
                 agency at Brigham Young University - Idaho.
               </p>
-              <p>
+              <p className="last-para">
                 My data-driven work has increased measurable brand recognition for
                 campus-wide events and department campaigns. My efficiency has quickly
                 produced quality targeted materials. My deep understanding of nine Adobe
