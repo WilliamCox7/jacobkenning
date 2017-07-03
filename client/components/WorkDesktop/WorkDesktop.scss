@@ -1,6 +1,38 @@
 @import "../../vars.scss";
 
 .WorkDesktop {
+  .nav-arrows {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 40px 0px;
+    .arrow {
+      span {
+        width: 50px;
+        height: 15px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        img {
+          width: 12px;
+        }
+        p {
+          font-size: 14px;
+          color: $jakegold;
+          font-family: 'Helvetica Neue Bold';
+        }
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
   .post {
     display: -webkit-box;
     display: -ms-flexbox;
