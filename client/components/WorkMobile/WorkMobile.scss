@@ -35,6 +35,13 @@
       font-family: 'Helvetica Neue Bold';
       padding: 10px 0px 20px 42px;
       color: $headerblack;
+      i {
+        color: $jakegold;
+        margin-left: 10px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
     }
     .post-cover {
       width: 100%;
@@ -50,7 +57,7 @@
       line-height: 22px;
     }
     .case-link {
-      font-weight: bold;
+      font-family: 'Helvetica Neue Bold';
       color: $jakegold;
       padding: 5px 42px 30px;
       img {

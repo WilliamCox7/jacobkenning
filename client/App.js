@@ -10,16 +10,28 @@ class App extends Component {
     super(props);
     this.state = {
       isHome: true,
+      isJake: true,
       curWork: undefined,
       workIndex: undefined,
       curBlog: undefined,
-      blogIndex: undefined
+      blogIndex: undefined,
+      curEdit: undefined
     }
+    this.storeEdit = this.storeEdit.bind(this);
+    this.authJake = this.authJake.bind(this);
     this.goHome = this.goHome.bind(this);
     this.storeWork = this.storeWork.bind(this);
     this.updWorkIndex = this.updWorkIndex.bind(this);
     this.storeBlog = this.storeBlog.bind(this);
     this.updBlogIndex = this.updBlogIndex.bind(this);
+  }
+
+  storeEdit(edit) {
+    this.setState({curEdit: edit});
+  }
+
+  authJake() {
+    this.setState({isJake: true});
   }
 
   goHome(bool) {
@@ -47,6 +59,10 @@ class App extends Component {
     var childrenWithProps = cloneElement(
       this.props.children, {
         isUser: false,
+        curEdit: this.state.curEdit,
+        storeEdit: this.storeEdit,
+        isJake: this.state.isJake,
+        authJake: this.authJake,
         isHome: this.state.isHome,
         goHome: this.goHome,
         curWork: this.state.curWork,

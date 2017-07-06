@@ -5,6 +5,13 @@
     font-family: 'Helvetica Neue Bold';
     padding: 20px 42px;
     color: $headerblack;
+    i {
+      color: $jakegold;
+      margin-left: 10px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
   img {
     width: 100%;

@@ -11,12 +11,18 @@ class BlogDesktop extends Component {
     this.selectPost = this.selectPost.bind(this);
     this.prev = this.prev.bind(this);
     this.next = this.next.bind(this);
+    this.editPost = this.editPost.bind(this);
   }
 
   selectPost(post, i) {
     this.props.updBlogIndex(i);
     this.props.storeBlog(post);
     this.props.goHome(false);
+  }
+
+  editPost(post) {
+    this.props.storeEdit(post);
+    this.props.router.push('/admin/edit');
   }
 
   prev() {
@@ -66,6 +72,10 @@ class BlogDesktop extends Component {
           <div className="post-info">
             <div className="post-heading">
               {initHeader}
+              {this.props.isJake ? (
+                <i className="fa fa-pencil" aria-hidden="true"
+                  onClick={() => { this.editPost(post); }}></i>
+              ) : (null)}
             </div>
             <p className="init-para">{initPara.substring(0, 350)}...</p>
             <p onClick={() => { this.selectPost(post, i); }} className="case-link">

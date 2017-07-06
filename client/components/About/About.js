@@ -29,7 +29,12 @@ class About extends Component {
               <img src={jake} />
             </div>
             <div className="right-side">
-              <h1 className="jake">This is Jake</h1>
+              <h1 className="jake">
+                This is Jake
+                {this.props.isJake ? (
+                  <i className="fa fa-pencil" aria-hidden="true"></i>
+                ) : (null)}
+              </h1>
               <p>
                 I’m a creative, designer and media strategist. The last three years
                 I’ve worked freelance and projects for clients of an internal creative

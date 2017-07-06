@@ -70,6 +70,7 @@ class Blog extends Component {
       ]
     }
     this.getWidth = this.getWidth.bind(this);
+    this.newPost = this.newPost.bind(this);
   }
 
   componentDidMount() {
@@ -80,22 +81,34 @@ class Blog extends Component {
     this.setState({width: e.target.innerWidth});
   }
 
+  newPost() {
+    this.props.storeEdit([]);
+    this.props.router.push('/admin/edit');
+  }
+
   render() {
 
     return (
       <section className="Blog">
+        {this.props.isJake ? (
+          <div onClick={this.newPost} className="edit-controls">
+            <i className="fa fa-plus-square" aria-hidden="true"></i>
+          </div>
+        ) : (null)}
         {this.state.width > 600 ? (
           <BlogDesktop goHome={this.props.goHome}
             isHome={this.props.isHome} blogs={this.state.blogs}
             curBlog={this.props.curBlog} storeBlog={this.props.storeBlog}
-            blogIndex={this.props.blogIndex}
-            updBlogIndex={this.props.updBlogIndex} />
+            blogIndex={this.props.blogIndex} storeEdit={this.props.storeEdit}
+            updBlogIndex={this.props.updBlogIndex} isJake={this.props.isJake}
+            router={this.props.router} />
         ) : (
           <BlogMobile goHome={this.props.goHome}
             isHome={this.props.isHome} blogs={this.state.blogs}
             curBlog={this.props.curBlog} storeBlog={this.props.storeBlog}
-            blogIndex={this.props.blogIndex}
-            updBlogIndex={this.props.updBlogIndex} />
+            blogIndex={this.props.blogIndex} storeEdit={this.props.storeEdit}
+            updBlogIndex={this.props.updBlogIndex} isJake={this.props.isJake}
+            router={this.props.router} />
         )}
       </section>
     )
