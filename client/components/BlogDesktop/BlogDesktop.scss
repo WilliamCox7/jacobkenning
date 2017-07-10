@@ -2,6 +2,7 @@
 
 .BlogDesktop {
   position: relative;
+  padding-top: 50px;
   .nav-arrows {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -9,10 +10,24 @@
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    padding: 10px 42px 20px;
+    position: absolute;
+    margin-top: -60px;
+    margin-left: 100px;
+    .arrow-circles {
+      padding: 5px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      span {
+        border-radius: 50px;
+        width: 7px;
+        height: 7px;
+        background: gray;
+        margin: auto 5px;
+      }
+    }
     .arrow {
       span {
-        width: 50px;
         height: 15px;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -20,13 +35,19 @@
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
-        img {
-          width: 12px;
+        color: $jakegold;
+        .fa-arrow-left {
+          margin-right: 5px;
+        }
+        .fa-arrow-right {
+          margin-left: 5px;
+        }
+        .fa {
+          margin-top: -1px;
         }
         p {
-          font-size: 14px;
-          color: $jakegold;
-          font-family: 'Helvetica Neue Bold';
+          font-size: 12px;
+          padding: 2px;
         }
       }
       &:hover {
@@ -40,12 +61,19 @@
     .post-heading {
       font-family: 'Helvetica Neue Bold';
       padding: 10px 0px 20px 42px;
+      font-size: 18px;
       color: $headerblack;
+      &:hover {
+        cursor: pointer;
+      }
     }
     .post-cover {
       width: 100%;
       text-align: center;
       overflow: hidden;
+      &:hover {
+        cursor: pointer;
+      }
       img {
         width: 100%;
         max-width: 472px;
@@ -62,14 +90,15 @@
       line-height: 22px;
     }
     .case-link {
-      font-family: 'Helvetica Neue Bold';
+      font-family: 'Helvetica Neue';
       color: $jakegold;
       margin: 5px 42px 30px;
       padding-bottom: 20px;
+      font-size: 14px;
       border-bottom: solid 1px #949494;
       img {
-        width: 8px;
-        margin-left: 55px;
+        width: 6px;
+        margin-left: 15px;
       }
       &:hover {
         cursor: pointer;
@@ -82,6 +111,12 @@
     h1 {
       font-family: 'Helvetica Neue Bold';
       padding: 0px 0px 20px 42px;
+      font-size: 18px;
+      color: $headerblack;
+    }
+    h2 {
+      padding: 0px 0px 20px 42px;
+      font-size: 20px;
       color: $headerblack;
     }
     p {
@@ -167,11 +202,14 @@
           margin: 0px 20px;
           color: $jakegold;
           font-family: 'Helvetica Neue Bold';
+          .fa-arrow-left {
+            margin-right: 5px;
+          }
+          .fa-arrow-right {
+            margin-left: 5px;
+          }
           &:hover {
             cursor: pointer;
-          }
-          img {
-            width: 100%;
           }
         }
         .prev-gallery {

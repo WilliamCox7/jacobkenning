@@ -11,7 +11,11 @@ class WorkPostMobile extends Component {
           posts.push(
             <h1 key={i}>{item.content}</h1>
           );
-        } else if (item.type === 'paragraph') {
+        } else if (item.type === 'subheader') {
+          posts.push(
+            <h2 key={i}>{item.content}</h2>
+          );
+        }  else if (item.type === 'paragraph') {
           posts.push(
             <p key={i}>{item.content}</p>
           );

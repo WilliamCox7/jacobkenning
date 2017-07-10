@@ -66,7 +66,7 @@ class WorkMobile extends Component {
           </div>
           <p className="init-para">{initPara.substring(0, 350)}...</p>
           <p onClick={() => { this.selectPost(post, i); }} className="case-link">
-            See case study
+            Continue case study
             <img src={nextarrow} />
           </p>
         </div>

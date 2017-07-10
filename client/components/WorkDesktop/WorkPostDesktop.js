@@ -30,6 +30,10 @@ class WorkPostDesktop extends Component {
           content.push(
             <h1 key={i}>{item.content}</h1>
           );
+        } else if (item.type === 'subheader') {
+          content.push(
+            <h2 key={i}>{item.content}</h2>
+          );
         } else if (item.type === 'paragraph') {
           content.push(
             <p key={i}>{item.content}</p>

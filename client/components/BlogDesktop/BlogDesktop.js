@@ -20,17 +20,21 @@ class BlogDesktop extends Component {
   }
 
   prev() {
-    var newIndex = this.props.blogIndex-1;
-    this.props.updBlogIndex(newIndex);
-    this.props.storeBlog(this.props.blogs[newIndex]);
-    window.scroll(0, 0)
+    if (this.props.blogIndex > 0) {
+      var newIndex = this.props.blogIndex-1;
+      this.props.updBlogIndex(newIndex);
+      this.props.storeBlog(this.props.blogs[newIndex]);
+      window.scroll(0, 0)
+    }
   }
 
   next() {
-    var newIndex = this.props.blogIndex+1;
-    this.props.updBlogIndex(newIndex);
-    this.props.storeBlog(this.props.blogs[newIndex]);
-    window.scroll(0, 0)
+    if (this.props.blogIndex < this.props.blogs.length-1) {
+      var newIndex = this.props.blogIndex+1;
+      this.props.updBlogIndex(newIndex);
+      this.props.storeBlog(this.props.blogs[newIndex]);
+      window.scroll(0, 0)
+    }
   }
 
   render() {
@@ -60,16 +64,16 @@ class BlogDesktop extends Component {
 
       return (
         <div key={i} className="post">
-          <div className="post-cover">
+          <div onClick={() => { this.selectPost(post, i); }} className="post-cover">
             <img src={initImg} />
           </div>
           <div className="post-info">
-            <div className="post-heading">
+            <div onClick={() => { this.selectPost(post, i); }} className="post-heading">
               {initHeader}
             </div>
             <p className="init-para">{initPara.substring(0, 350)}...</p>
             <p onClick={() => { this.selectPost(post, i); }} className="case-link">
-              Continue reading
+              Continue
               <img src={nextarrow} />
             </p>
           </div>
@@ -77,31 +81,44 @@ class BlogDesktop extends Component {
       );
     });
 
+    var circles = [];
+    for (var i = 0; i < this.props.blogs.length; i++) {
+      circles.push(
+        <span key={i} style={this.props.blogIndex === i ? {
+          background: '#C58D0F'
+        } : (null)}></span>
+      );
+    }
+
     return (
       <section className="BlogDesktop">
-        {this.props.isHome ? (posts) : (
-          <BlogPostDesktop blog={this.props.curBlog} />
-        )}
         {location !== "/about" && !this.props.isHome ? (
           <div className="nav-arrows">
             <div className="arrow">
-              {this.props.blogIndex > 0 ? (
-                <span onClick={this.prev}>
-                  <img src={prevarrow} />
-                  <p>prev</p>
-                </span>
-              ) : (null)}
+              <span onClick={this.prev} style={this.props.blogIndex === 0 ? {
+                color: 'gray'
+              } : (null)}>
+                <i className="fa fa-arrow-left" aria-hidden="true"></i>
+                <p>back</p>
+              </span>
+            </div>
+            <div className="arrow-circles">
+              {circles}
             </div>
             <div className="arrow">
-              {this.props.blogIndex < this.props.blogs.length-1 ? (
-                <span onClick={this.next}>
-                  <p>next</p>
-                  <img src={nextarrow} />
-                </span>
-              ) : (null)}
+              <span onClick={this.next}
+                style={this.props.blogIndex === this.props.blogs.length-1 ? {
+                  color: 'gray'
+                } : (null)}>
+                <p>next</p>
+                <i className="fa fa-arrow-right" aria-hidden="true"></i>
+              </span>
             </div>
           </div>
         ) : (null)}
+        {this.props.isHome ? (posts) : (
+          <BlogPostDesktop blog={this.props.curBlog} />
+        )}
       </section>
     )
   }

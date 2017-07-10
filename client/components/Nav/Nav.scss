@@ -66,6 +66,9 @@
     span {
       font-weight: bold;
       padding: 10px 0px;
+      font-family: 'Helvetica Neue';
+      color: $headerblack;
+      font-size: 14px;
       &:hover {
         border-bottom: solid 3px $jakegold;
         cursor: pointer;
@@ -98,7 +101,7 @@
     .tabs {
       width: 230px;
       padding: initial;
-      margin-left: 80px;
+      margin-left: 100px;
       span {
         padding: 4px 0px 10px;
       }
@@ -111,7 +114,7 @@
     margin: 30px auto;
     .nav-name {
       padding: 0px;
-      width: 407px;
+      width: 399px;
       .nav-social-media {
         display: -webkit-box;
         display: -ms-flexbox;

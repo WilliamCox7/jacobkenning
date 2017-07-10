@@ -15,10 +15,10 @@ class Footer extends Component {
           <div className="footer-icons">
             <img className="footer-logo" src={logo} />
             <div className="footer-social-media">
-              <img src={whitefb} />
-              <img src={whitein} />
-              <img src={whiteig} />
-              <img src={whitetw} />
+              <a href="https://www.facebook.com/jacob.kenning.3" target="_blank"><img src={whitefb} /></a>
+              <a href="https://www.linkedin.com/in/jacob-kenning-b5308688/" target="_blank"><img src={whitein} /></a>
+              <a href="https://www.instagram.com/jakekenning/" target="_blank"><img src={whiteig} /></a>
+              <a href="https://twitter.com/jakenning" target="_blank"><img src={whitetw} /></a>
             </div>
           </div>
           <div className="copyright">

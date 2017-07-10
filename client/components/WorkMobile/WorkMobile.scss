@@ -50,19 +50,26 @@
       line-height: 22px;
     }
     .case-link {
-      font-family: 'Helvetica Neue Bold';
+      font-family: 'Helvetica Neue';
       color: $jakegold;
+      font-size: 14px;
       padding: 5px 42px 30px;
       img {
-        width: 8px;
-        margin-left: 55px;
+        width: 6px;
+        margin-left: 15px;
       }
     }
   }
   .WorkPostMobile {
     h1 {
       font-family: 'Helvetica Neue Bold';
-      padding: 0px 0px 20px 42px;
+      padding-bottom: 20px;
+      color: $headerblack;
+      font-size: 18px;
+    }
+    h2 {
+      padding-bottom: 20px;
+      font-size: 20px;
       color: $headerblack;
     }
     p {

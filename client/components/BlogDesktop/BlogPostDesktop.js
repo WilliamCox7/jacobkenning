@@ -29,13 +29,17 @@ class BlogPostDesktop extends Component {
   }
 
   next(gallery) {
-    var newIndex = this.state.curIndex+1;
-    this.setState({curImg: gallery[newIndex], curIndex: newIndex});
+    if (this.state.curIndex < gallery.length-1) {
+      var newIndex = this.state.curIndex+1;
+      this.setState({curImg: gallery[newIndex], curIndex: newIndex});
+    }
   }
 
   prev(gallery) {
-    var newIndex = this.state.curIndex-1;
-    this.setState({curImg: gallery[newIndex], curIndex: newIndex});
+    if (this.state.curIndex > 0) {
+      var newIndex = this.state.curIndex-1;
+      this.setState({curImg: gallery[newIndex], curIndex: newIndex});
+    }
   }
 
   render() {
@@ -47,7 +51,11 @@ class BlogPostDesktop extends Component {
           posts.push(
             <h1 key={i}>{item.content}</h1>
           );
-        } else if (item.type === 'paragraph') {
+        } else if (item.type === 'subheader') {
+          posts.push(
+            <h2 key={i}>{item.content}</h2>
+          );
+        }  else if (item.type === 'paragraph') {
           posts.push(
             <p key={i}>{item.content}</p>
           );
@@ -96,18 +104,16 @@ class BlogPostDesktop extends Component {
         <div id="modal" className="gallery-modal" onClick={this.closeModal}>
           <div className="modal-container">
             <span className="prev-gallery" style={this.state.curIndex === 0 ? {
-              opacity: 0
-            } : null} onClick={this.state.curIndex === 0 ?
-              (null) : (() => { this.prev(sources); })}>
-              <img src={prevarrow} /> prev
+              color: 'gray'
+            } : null} onClick={() => { this.prev(sources); }}>
+              <i className="fa fa-arrow-left" aria-hidden="true"></i> back
             </span>
             <img src={this.state.curImg} />
             <span className="next-gallery"
               style={this.state.curIndex === gallery.length-1 ? {
-              opacity: 0
-            } : null} onClick={this.state.curIndex === gallery.length-1 ?
-              (null) : (() => { this.next(sources); })}>
-              next <img src={nextarrow} />
+              color: 'gray'
+            } : null} onClick={() => { this.next(sources); }}>
+              next <i className="fa fa-arrow-right" aria-hidden="true"></i>
             </span>
           </div>
         </div>
