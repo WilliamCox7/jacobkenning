@@ -9,6 +9,9 @@
     padding: 5px;
     img {
       width: 33px;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
   .nav-name {
@@ -41,6 +44,9 @@
     }
     img {
       width: 190px;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
   .tabs {
