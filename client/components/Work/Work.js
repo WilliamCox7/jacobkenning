@@ -66,7 +66,6 @@ class Work extends Component {
       ]
     }
     this.getWidth = this.getWidth.bind(this);
-    this.newPost = this.newPost.bind(this);
   }
 
   componentDidMount() {
@@ -77,34 +76,20 @@ class Work extends Component {
     this.setState({width: e.target.innerWidth});
   }
 
-  newPost() {
-    this.props.storeEdit([]);
-    this.props.router.push('/admin/edit');
-  }
-
   render() {
 
     return (
       <section className="Work">
-        {this.props.isJake ? (
-          <div onClick={this.newPost} className="edit-controls">
-            <i className="fa fa-plus-square" aria-hidden="true"></i>
-          </div>
-        ) : (null)}
         {this.state.width > 600 ? (
           <WorkDesktop goHome={this.props.goHome}
             isHome={this.props.isHome} works={this.state.works}
             curWork={this.props.curWork} storeWork={this.props.storeWork}
-            workIndex={this.props.workIndex} isJake={this.props.isJake}
-            updWorkIndex={this.props.updWorkIndex} storeEdit={this.props.storeEdit}
-            router={this.props.router} />
+            workIndex={this.props.workIndex} updWorkIndex={this.props.updWorkIndex} />
         ) : (
           <WorkMobile goHome={this.props.goHome}
             isHome={this.props.isHome} works={this.state.works}
             curWork={this.props.curWork} storeWork={this.props.storeWork}
-            workIndex={this.props.workIndex} isJake={this.props.isJake}
-            updWorkIndex={this.props.updWorkIndex} storeEdit={this.props.storeEdit}
-            router={this.props.router} />
+            workIndex={this.props.workIndex} updWorkIndex={this.props.updWorkIndex} />
         )}
       </section>
     )

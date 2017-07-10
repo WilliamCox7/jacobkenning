@@ -31,9 +31,6 @@ class About extends Component {
             <div className="right-side">
               <h1 className="jake">
                 This is Jake
-                {this.props.isJake ? (
-                  <i className="fa fa-pencil" aria-hidden="true"></i>
-                ) : (null)}
               </h1>
               <p>
                 I’m a creative, designer and media strategist. The last three years

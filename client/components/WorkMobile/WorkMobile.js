@@ -11,18 +11,12 @@ class WorkMobile extends Component {
     this.selectPost = this.selectPost.bind(this);
     this.prev = this.prev.bind(this);
     this.next = this.next.bind(this);
-    this.editPost = this.editPost.bind(this);
   }
 
   selectPost(post, i) {
     this.props.updWorkIndex(i);
     this.props.storeWork(post);
     this.props.goHome(false);
-  }
-
-  editPost(post) {
-    this.props.storeEdit(post);
-    this.props.router.push('/admin/edit');
   }
 
   prev() {
@@ -66,10 +60,6 @@ class WorkMobile extends Component {
         <div key={i} className="post">
           <div className="post-heading">
             {initHeader}
-            {this.props.isJake ? (
-              <i className="fa fa-pencil" aria-hidden="true"
-                onClick={() => { this.editPost(post); }}></i>
-            ) : (null)}
           </div>
           <div className="post-cover">
             <img src={initImg} />

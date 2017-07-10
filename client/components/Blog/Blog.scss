@@ -3,18 +3,6 @@
 .Blog {
   width: 100%;
   max-width: 850px;
-  .edit-controls {
-    padding-bottom: 30px;
-    color: $jakegold;
-    max-width: 472px;
-    margin: auto;
-    i {
-      font-size: 22px;
-    }
-    &:hover {
-      cursor: pointer;
-    }
-  }
 }
 
 @media (min-width: 600px) {

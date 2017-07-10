@@ -58,13 +58,6 @@
         font-family: 'Helvetica Neue Bold';
         padding-bottom: 10px;
         color: $headerblack;
-        i {
-          color: $jakegold;
-          margin-left: 10px;
-          &:hover {
-            cursor: pointer;
-          }
-        }
       }
       .init-para {
         color: $contentgray;

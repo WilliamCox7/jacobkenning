@@ -14,6 +14,7 @@ class Nav extends Component {
     super(props);
     this.redirect = this.redirect.bind(this);
     this.showActive = this.showActive.bind(this);
+    this.goToWork = this.goToWork.bind(this);
   }
 
   componentDidMount() {
@@ -53,6 +54,12 @@ class Nav extends Component {
     this.showActive();
   }
 
+  goToWork() {
+    this.props.router.push('/');
+    this.props.goHome(true);
+    this.showActive();
+  }
+
   render() {
 
     var location = hashHistory.getCurrentLocation().pathname;
@@ -60,10 +67,10 @@ class Nav extends Component {
     return (
       <section className="Nav">
         <div className="nav-logo">
-          <img src={logo} />
+          <img onClick={this.goToWork} src={logo} />
         </div>
         <div className="nav-name">
-          <img src={name} />
+          <img onClick={this.goToWork} src={name} />
           <div className="nav-social-media">
             <img src={goldfb} />
             <img src={goldin} />
