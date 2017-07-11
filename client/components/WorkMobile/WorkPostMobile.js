@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 
 class WorkPostMobile extends Component {
 
+  componentDidMount() {
+    window.scroll(0, 0);
+  }
+
   render() {
 
     var posts = [];

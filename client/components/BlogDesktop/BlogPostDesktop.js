@@ -16,6 +16,10 @@ class BlogPostDesktop extends Component {
     this.prev = this.prev.bind(this);
   }
 
+  componentDidMount() {
+    window.scroll(0, 0);
+  }
+
   openModal(e, gallery) {
     var index = Number(e.currentTarget.getAttribute('name'));
     this.setState({curImg: gallery[index], curIndex: index});
