@@ -38,51 +38,22 @@ class BlogMobile extends Component {
   }
 
   render() {
-
     var posts = this.props.blogs.map((post, i) => {
-
-      var initHeader, initPara, hasImg, date;
-      var initImg = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png";
-      post.forEach((item) => {
-        if (!hasImg) {
-          if (item.type === 'image') {
-            initImg = item.content;
-            hasImg = true;
-          }
-        }
-        if (!initHeader) {
-          if (item.type === 'header') {
-            initHeader = item.content;
-          }
-        }
-        if (!initPara) {
-          if (item.type === 'paragraph') {
-            initPara = item.content;
-          }
-        }
-        if (!date) {
-          if (item.type === 'date') {
-            date = item.content;
-          }
-        }
-      });
-
       return (
         <div key={i} className="post">
-          <div className="post-heading">
-            {initHeader}
+          <div onClick={() => { this.selectPost(post, i); }} className="post-heading">
+            {post[0].header}
           </div>
-          <div className="post-cover">
-            <img src={initImg} />
+          <div onClick={() => { this.selectPost(post, i); }} className="post-cover">
+            <img src={post[0].images[0]} />
           </div>
-          <div className="post-date">
-            <h2>{date}</h2>
+          <div className="post-info">
+            <p className="init-para">{post[0].paragraph}</p>
+            <p onClick={() => { this.selectPost(post, i); }} className="case-link">
+              Continue
+              <img src={nextarrow} />
+            </p>
           </div>
-          <p className="init-para">{initPara.substring(0, 350)}...</p>
-          <p onClick={() => { this.selectPost(post, i); }} className="case-link">
-            Continue Reading
-            <img src={nextarrow} />
-          </p>
         </div>
       );
     });

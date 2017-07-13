@@ -107,51 +107,40 @@
     }
   }
   .WorkPostDesktop {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    .desktop-images {
+    .item {
+      width: 100%;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
       -webkit-box-pack: justify;
       -ms-flex-pack: justify;
       justify-content: space-between;
-      width: 550px;
-      height: 0;
-      span {
-        margin-bottom: 50px;
+      .item-image {
+        width: 65%;
         img {
           width: 100%;
-          height: 100%;
-          -o-object-fit: cover;
-          object-fit: cover;
+          margin-bottom: 30px;
         }
       }
-    }
-    .desktop-content {
-      width: 250px;
-      margin-left: 50px;
-      h1 {
-        font-family: 'Helvetica Neue Bold';
-        padding-bottom: 20px;
-        color: $headerblack;
-        font-size: 18px;
-      }
-      h2 {
-        padding-bottom: 20px;
-        font-size: 20px;
-        color: $headerblack;
-      }
-      p {
-        color: $contentgray;
-        padding-bottom: 20px;
-        line-height: 22px;
+      .item-content {
+        width: 35%;
+        margin-left: 40px;
+        h1 {
+          font-family: 'Helvetica Neue Bold';
+          padding-bottom: 20px;
+          font-size: 18px;
+          color: $headerblack;
+        }
+        h2 {
+          padding-bottom: 20px;
+          font-size: 18px;
+          color: $headerblack;
+        }
+        p {
+          color: $headerblack;
+          line-height: 22px;
+          padding-bottom: 30px;
+        }
       }
     }
   }

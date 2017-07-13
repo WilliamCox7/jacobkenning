@@ -40,41 +40,21 @@ class WorkMobile extends Component {
   render() {
 
     var posts = this.props.works.map((post, i) => {
-
-      var initHeader, initPara, hasImg;
-      var initImg = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/500px-No_image_available.svg.png";
-      post.forEach((item) => {
-        if (!hasImg) {
-          if (item.type === 'image') {
-            initImg = item.content;
-            hasImg = true;
-          }
-        }
-        if (!initHeader) {
-          if (item.type === 'header') {
-            initHeader = item.content;
-          }
-        }
-        if (!initPara) {
-          if (item.type === 'paragraph') {
-            initPara = item.content;
-          }
-        }
-      });
-
       return (
         <div key={i} className="post">
-          <div className="post-heading">
-            {initHeader}
+          <div onClick={() => { this.selectPost(post, i); }} className="post-heading">
+            {post[0].header}
           </div>
-          <div className="post-cover">
-            <img src={initImg} />
+          <div onClick={() => { this.selectPost(post, i); }} className="post-cover">
+            <img src={post[0].images[0]} />
           </div>
-          <p className="init-para">{initPara.substring(0, 350)}...</p>
-          <p onClick={() => { this.selectPost(post, i); }} className="case-link">
-            Continue case study
-            <img src={nextarrow} />
-          </p>
+          <div className="post-info">
+            <p className="init-para">{post[0].paragraph}</p>
+            <p onClick={() => { this.selectPost(post, i); }} className="case-link">
+              Continue case study
+              <img src={nextarrow} />
+            </p>
+          </div>
         </div>
       );
     });

@@ -8,9 +8,30 @@ import './Footer.scss';
 
 class Footer extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      fixed: false
+    }
+  }
+
+  componentDidMount() {
+    this.setState({fixed: document.body.clientHeight < window.innerHeight});
+  }
+
   render() {
+
+    var fixed = this.state.fixed;
+    if (document.body.clientHeight < window.innerHeight) {
+      fixed = true;
+    } else {
+      fixed = false;
+    }
+
     return (
-      <section className="Footer">
+      <section className="Footer" style={fixed ? {
+        position: 'fixed', bottom: '0', width: '100%'
+      } : null}>
         <div className="footer-container">
           <div className="footer-icons">
             <img className="footer-logo" src={logo} />

@@ -8,52 +8,35 @@ class WorkPostDesktop extends Component {
 
   render() {
 
-    var images = [];
-    var content = [];
-    if (this.props.work) {
-      this.props.work.forEach((item, i) => {
-        if (item.type === 'cover') {
+    var content = this.props.work.map((item, i) => {
+      if (i !== 0) {
+        var images = [];
+        item.images.forEach((image, j) => {
           images.push(
-            <span key={i} style={{width: item.w}}>
-              <img style={{height: item.h}} src={item.content} />
-            </span>
+            <img key={j} src={image} />
           );
-        } else if (item.type === 'image') {
-          if (item.column === 1) {
-            images.push(
-              <span key={i} style={{width: item.w}}>
-                <img style={{height: item.h}} src={item.content} />
-              </span>
-            );
-          } else {
-            content.push(
-              <img key={i} style={{width: '100%'}} src={item.content} />
-            );
-          }
-        } else if (item.type === 'header') {
-          content.push(
-            <h1 key={i}>{item.content}</h1>
-          );
-        } else if (item.type === 'subheader') {
-          content.push(
-            <h2 key={i}>{item.content}</h2>
-          );
-        } else if (item.type === 'paragraph') {
-          content.push(
-            <p key={i}>{item.content}</p>
-          );
-        }
-      });
-    }
+        });
+        return (
+          <div key={i} className="item">
+            <div className="item-image">
+              {images}
+            </div>
+            <div className="item-content">
+              {item.header ? (
+                <h1>{item.header}</h1>
+              ) : (
+                <h2>{item.subheader}</h2>
+              )}
+              <p>{item.paragraph}</p>
+            </div>
+          </div>
+        )
+      }
+    });
 
     return (
       <section className="WorkPostDesktop">
-        <div className="desktop-images">
-          {images}
-        </div>
-        <div className="desktop-content">
-          {content}
-        </div>
+        {content}
       </section>
     )
   }

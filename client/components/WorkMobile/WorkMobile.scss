@@ -82,29 +82,28 @@
     }
   }
   .WorkPostMobile {
-    h1 {
-      font-family: 'Helvetica Neue Bold';
-      padding: 0px 42px 20px 42px;
-      color: $headerblack;
-      font-size: 18px;
-    }
-    h2 {
-      padding: 0px 42px 20px 42px;
-      font-size: 20px;
-      color: $headerblack;
-    }
-    p {
-      color: $contentgray;
-      padding: 0px 42px 20px 42px;
-      line-height: 22px;
-    }
-    .post-normal-photo {
-      width: 100%;
-      padding: 0px 42px 20px 42px;
-    }
-    .post-cover-photo {
-      width: 100%;
-      padding-bottom: 20px;
+    .item {
+      margin-bottom: 20px;
+      img {
+        width: 100%;
+        margin-bottom: 30px;
+      }
+      h1 {
+        font-family: 'Helvetica Neue Bold';
+        padding: 0px 42px 30px 42px;
+        color: $headerblack;
+        font-size: 18px;
+      }
+      h2 {
+        padding: 0px 42px 30px 42px;
+        font-size: 20px;
+        color: $headerblack;
+      }
+      p {
+        color: $contentgray;
+        padding: 0px 42px 30px 42px;
+        line-height: 22px;
+      }
     }
   }
 }
