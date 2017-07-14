@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import prevarrow from '../../src/prev-arrow.svg';
 import nextarrow from '../../src/next-arrow.svg';
+import ReactGA from 'react-ga';
 
 class BlogPostDesktop extends Component {
 
@@ -14,6 +15,7 @@ class BlogPostDesktop extends Component {
     this.closeModal = this.closeModal.bind(this);
     this.next = this.next.bind(this);
     this.prev = this.prev.bind(this);
+    this.fireTracking = this.fireTracking.bind(this);
   }
 
   componentDidMount() {
@@ -46,6 +48,13 @@ class BlogPostDesktop extends Component {
     }
   }
 
+  fireTracking(target) {
+    ReactGA.event({
+      category: 'Blog Link',
+      action: 'Clicked ' + target
+    });
+  }
+
   render() {
 
     var posts = [];
@@ -60,8 +69,20 @@ class BlogPostDesktop extends Component {
             <h2 key={i}>{item.content}</h2>
           );
         }  else if (item.type === 'paragraph') {
+          var pararray = item.content.split("---");
+          var para = [];
+          pararray.forEach((paraItem, j) => {
+            if (j % 2 === 0) {
+              para.push(paraItem);
+            } else {
+              para.push(
+                <a onClick={() => { this.fireTracking(paraItem); }}
+                  key={j} href={paraItem} target="_blank">{paraItem}</a>
+              );
+            }
+          });
           posts.push(
-            <p key={i}>{item.content}</p>
+            <p key={i}>{para}</p>
           );
         } else if (item.type === 'image') {
           posts.push(

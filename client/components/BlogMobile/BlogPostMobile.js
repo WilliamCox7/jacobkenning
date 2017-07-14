@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
+import ReactGA from 'react-ga';
 
 class BlogPostMobile extends Component {
 
+  constructor(props) {
+    super(props);
+    this.fireTracking = this.fireTracking.bind(this);
+  }
+
   componentDidMount() {
     window.scroll(0, 0);
+  }
+
+  fireTracking(target) {
+    ReactGA.event({
+      category: 'Blog Link',
+      action: 'Clicked ' + target
+    });
   }
 
   render() {
@@ -16,8 +29,20 @@ class BlogPostMobile extends Component {
             <h1 key={i}>{item.content}</h1>
           );
         } else if (item.type === 'paragraph') {
+          var pararray = item.content.split("---");
+          var para = [];
+          pararray.forEach((paraItem, j) => {
+            if (j % 2 === 0) {
+              para.push(paraItem);
+            } else {
+              para.push(
+                <a onClick={() => { this.fireTracking(paraItem); }}
+                  key={j} href={paraItem} target="_blank">{paraItem}</a>
+              );
+            }
+          });
           posts.push(
-            <p key={i}>{item.content}</p>
+            <p key={i}>{para}</p>
           );
         } else if (item.type === 'image') {
           posts.push(
