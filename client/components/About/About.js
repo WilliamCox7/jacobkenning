@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import jake from '../../src/Portrait.jpg';
+import ReactGA from 'react-ga';
 import './About.scss';
 
 class About extends Component {
@@ -10,6 +11,7 @@ class About extends Component {
       width: document.body.clientWidth
     }
     this.getWidth = this.getWidth.bind(this);
+    this.fireTracking = this.fireTracking.bind(this);
   }
 
   componentDidMount() {
@@ -18,6 +20,13 @@ class About extends Component {
 
   getWidth(e) {
     this.setState({width: e.target.innerWidth});
+  }
+
+  fireTracking(target) {
+    ReactGA.event({
+      category: 'Email Link',
+      action: 'Clicked ' + target
+    });
   }
 
   render() {
@@ -33,7 +42,8 @@ class About extends Component {
           <div className="left-side">
             <h1>Go Ahead</h1>
             <h2>
-              <a className="email" href="mailto:jakekenning@gmail.com">
+              <a onClick={() => { this.fireTracking('jakekenning@gmail.com'); }}
+                className="email" href="mailto:jakekenning@gmail.com">
                 jakekenning@gmail.com
               </a>
             </h2>

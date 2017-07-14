@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
+import ReactGA from 'react-ga';
 
 class WorkPostDesktop extends Component {
 
+  constructor(props) {
+    super(props);
+    this.fireTracking = this.fireTracking.bind(this);
+  }
+
   componentDidMount() {
     window.scroll(0, 0);
+  }
+
+  fireTracking(target) {
+    ReactGA.event({
+      category: 'Work Link',
+      action: 'Clicked ' + target
+    });
   }
 
   render() {
@@ -16,6 +29,18 @@ class WorkPostDesktop extends Component {
             <img key={j} src={image} />
           );
         });
+        var pararray = item.paragraph.split("---");
+        var para = [];
+        pararray.forEach((paraItem, j) => {
+          if (j % 2 === 0) {
+            para.push(paraItem);
+          } else {
+            para.push(
+              <a onClick={() => { this.fireTracking(paraItem); }}
+                key={j} href={paraItem} target="_blank">{paraItem}</a>
+            );
+          }
+        });
         return (
           <div key={i} className="item">
             <div className="item-image">
@@ -27,7 +52,7 @@ class WorkPostDesktop extends Component {
               ) : (
                 <h2>{item.subheader}</h2>
               )}
-              <p>{item.paragraph}</p>
+              <p>{para}</p>
             </div>
           </div>
         )

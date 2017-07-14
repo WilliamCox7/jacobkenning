@@ -2,6 +2,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, hashHistory } from "react-router";
+import ReactGA from 'react-ga';
+ReactGA.initialize('UA-102511240-1');
+
+function fireTracking() {
+  ReactGA.pageview(window.location.hash);
+}
 
 /* COMPONENTS */
 import App from './App';
@@ -12,7 +18,7 @@ import Login from './components/Login/Login';
 
 /* ROUTES */
 ReactDOM.render (
-  <Router history={hashHistory}>
+  <Router onUpdate={fireTracking} history={hashHistory}>
     <Route component={App}>
       <Route path="/admin" component={Login} />
       <Route path="/" component={Work} />

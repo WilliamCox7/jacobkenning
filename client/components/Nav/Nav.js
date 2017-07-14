@@ -6,6 +6,7 @@ import goldin from '../../src/gold-in.svg';
 import goldtw from '../../src/gold-tw.svg';
 import logo from '../../src/logo.svg';
 import name from '../../src/name.svg';
+import ReactGA from 'react-ga';
 import './Nav.scss';
 
 class Nav extends Component {
@@ -15,10 +16,18 @@ class Nav extends Component {
     this.redirect = this.redirect.bind(this);
     this.showActive = this.showActive.bind(this);
     this.goToWork = this.goToWork.bind(this);
+    this.fireTracking = this.fireTracking.bind(this);
   }
 
   componentDidMount() {
     this.showActive();
+  }
+
+  fireTracking(target) {
+    ReactGA.event({
+      category: 'Social Media',
+      action: 'Clicked ' + target
+    });
   }
 
   showActive() {
@@ -72,10 +81,22 @@ class Nav extends Component {
         <div className="nav-name">
           <img onClick={this.goToWork} src={name} />
           <div className="nav-social-media">
-            <a href="https://www.facebook.com/jacob.kenning.3" target="_blank"><img src={goldfb} /></a>
-            <a href="https://www.linkedin.com/in/jacob-kenning-b5308688/" target="_blank"><img src={goldin} /></a>
-            <a href="https://www.instagram.com/jakekenning/" target="_blank"><img src={goldig} /></a>
-            <a href="https://twitter.com/jakenning" target="_blank"><img src={goldtw} /></a>
+            <a onClick={() => { this.fireTracking('facebook'); }}
+              href="https://www.facebook.com/jacob.kenning.3" target="_blank">
+              <img src={goldfb} />
+            </a>
+            <a onClick={() => { this.fireTracking('linkedin'); }}
+              href="https://www.linkedin.com/in/jacob-kenning-b5308688/" target="_blank">
+              <img src={goldin} />
+            </a>
+            <a onClick={() => { this.fireTracking('instagram'); }}
+              href="https://www.instagram.com/jakekenning/" target="_blank">
+              <img src={goldig} />
+            </a>
+            <a onClick={() => { this.fireTracking('twitter'); }}
+              href="https://twitter.com/jakenning" target="_blank">
+              <img src={goldtw} />
+            </a>
           </div>
         </div>
         <div className="tabs">

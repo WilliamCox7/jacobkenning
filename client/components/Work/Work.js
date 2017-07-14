@@ -26,7 +26,7 @@ class Work extends Component {
 
           {workId: 1, images: ['./images/jakenning-G2g-TV.jpg'], subheader: 'In-store TV animation ad',
           paragraph: `This video animation displays the promotion for each day of the week. This video is displayed on the
-          TV sets in the store.To view the video go to this link: https://vimeo.com/225364321`},
+          TV sets in the store.To view the video go to this link: ---https://vimeo.com/225364321---`},
 
           {workId: 1, images: ['./images/jakenning-G2g-hotdog.jpg', './images/jakenning-G2g-mu.jpg'], subheader: 'Photoshoot & ad design',
           paragraph: `To promote the sales of hot dogs I created a sign that illustrate creative ways to give ideas to the
