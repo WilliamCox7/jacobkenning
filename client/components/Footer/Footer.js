@@ -30,7 +30,7 @@ class Footer extends Component {
 
     return (
       <section className="Footer" style={fixed ? {
-        position: 'fixed', bottom: '0', width: '100%'
+        position: 'absolute', bottom: '0', width: '100%'
       } : null}>
         <div className="footer-container">
           <div className="footer-icons">

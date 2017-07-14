@@ -69,6 +69,10 @@ class Work extends Component {
     this.setState({width: e.target.innerWidth});
   }
 
+  // addWork(work) {
+  //   var newState =
+  // }
+
   render() {
 
     return (
@@ -77,12 +81,14 @@ class Work extends Component {
           <WorkDesktop goHome={this.props.goHome}
             isHome={this.props.isHome} works={this.state.works}
             curWork={this.props.curWork} storeWork={this.props.storeWork}
-            workIndex={this.props.workIndex} updWorkIndex={this.props.updWorkIndex} />
+            workIndex={this.props.workIndex} updWorkIndex={this.props.updWorkIndex}
+            isJake={this.props.isJake} />
         ) : (
           <WorkMobile goHome={this.props.goHome}
             isHome={this.props.isHome} works={this.state.works}
             curWork={this.props.curWork} storeWork={this.props.storeWork}
-            workIndex={this.props.workIndex} updWorkIndex={this.props.updWorkIndex} />
+            workIndex={this.props.workIndex} updWorkIndex={this.props.updWorkIndex}
+            isJake={this.props.isJake} />
         )}
       </section>
     )

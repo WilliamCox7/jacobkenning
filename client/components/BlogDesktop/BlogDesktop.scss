@@ -36,13 +36,12 @@
         -ms-flex-pack: justify;
         justify-content: space-between;
         color: $jakegold;
-        .fa-arrow-left {
+        .icon-arrow-left {
           margin-right: 5px;
+          margin-top: -1px;
         }
-        .fa-arrow-right {
+        .icon-arrow-right {
           margin-left: 5px;
-        }
-        .fa {
           margin-top: -1px;
         }
         p {
@@ -85,7 +84,7 @@
       color: $contentgray;
     }
     .init-para {
-      color: $contentgray;
+      color: $paragraph;
       padding: 11px 42px;
       line-height: 22px;
     }
@@ -120,7 +119,7 @@
       color: $headerblack;
     }
     p {
-      color: $contentgray;
+      color: $paragraph;
       padding: 0px 42px 20px 42px;
       line-height: 22px;
     }
@@ -203,10 +202,10 @@
           margin: 0px 20px;
           color: $jakegold;
           font-family: 'Helvetica Neue Bold';
-          .fa-arrow-left {
+          .icon-arrow-left {
             margin-right: 5px;
           }
-          .fa-arrow-right {
+          .icon-arrow-right {
             margin-left: 5px;
           }
           &:hover {

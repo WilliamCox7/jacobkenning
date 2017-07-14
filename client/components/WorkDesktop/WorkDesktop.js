@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import WorkPostDesktop from './WorkPostDesktop';
 import prevarrow from '../../src/prev-arrow.svg';
 import nextarrow from '../../src/next-arrow.svg';
+import addphoto from '../../src/image_placeholder.jpg';
 import './WorkDesktop.scss';
 
 class WorkDesktop extends Component {
@@ -76,7 +77,7 @@ class WorkDesktop extends Component {
               <span onClick={this.prev} style={this.props.workIndex === 0 ? {
                 color: 'gray'
               } : (null)}>
-                <i className="fa fa-arrow-left" aria-hidden="true"></i>
+                <i className="icon-arrow-left"></i>
                 <p>back</p>
               </span>
             </div>
@@ -89,12 +90,35 @@ class WorkDesktop extends Component {
                   color: 'gray'
                 } : (null)}>
                 <p>next</p>
-                <i className="fa fa-arrow-right" aria-hidden="true"></i>
+                <i className="icon-arrow-right"></i>
               </span>
             </div>
           </div>
         ) : (null)}
-        {this.props.isHome ? (posts) : (
+        {this.props.isHome ? (
+          <div>
+            {posts}
+            {this.props.isJake ? (
+              <div className="post">
+                <div className="post-cover addphoto">
+                  <img src={addphoto} />
+                </div>
+                <div className="post-info">
+                  <div className="post-heading">
+                    <input type="text" placeholder="header" />
+                  </div>
+                  <p className="init-para">
+                    <textarea placeholder="introduction..." />
+                  </p>
+                  <p className="case-link">
+                    Continue editing case study
+                    <img src={nextarrow} />
+                  </p>
+                </div>
+              </div>
+            ) : (null)}
+          </div>
+        ) : (
           <WorkPostDesktop work={this.props.curWork} />
         )}
       </section>

@@ -110,14 +110,14 @@ class BlogPostDesktop extends Component {
             <span className="prev-gallery" style={this.state.curIndex === 0 ? {
               color: 'gray'
             } : null} onClick={() => { this.prev(sources); }}>
-              <i className="fa fa-arrow-left" aria-hidden="true"></i> back
+              <i className="icon-arrow-left"></i> back
             </span>
             <img src={this.state.curImg} />
             <span className="next-gallery"
               style={this.state.curIndex === gallery.length-1 ? {
               color: 'gray'
             } : null} onClick={() => { this.next(sources); }}>
-              next <i className="fa fa-arrow-right" aria-hidden="true"></i>
+              next <i className="icon-arrow-right"></i>
             </span>
           </div>
         </div>

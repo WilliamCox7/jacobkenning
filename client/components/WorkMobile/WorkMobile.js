@@ -76,7 +76,7 @@ class WorkMobile extends Component {
               <span onClick={this.prev} style={this.props.workIndex === 0 ? {
                 color: 'gray'
               } : (null)}>
-                <i className="fa fa-arrow-left" aria-hidden="true"></i>
+                <i className="icon-arrow-left"></i>
                 <p>back</p>
               </span>
             </div>
@@ -89,7 +89,7 @@ class WorkMobile extends Component {
                   color: 'gray'
                 } : (null)}>
                 <p>next</p>
-                <i className="fa fa-arrow-right" aria-hidden="true"></i>
+                <i className="icon-arrow-right"></i>
               </span>
             </div>
           </div>

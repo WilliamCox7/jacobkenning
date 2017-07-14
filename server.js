@@ -5,9 +5,9 @@ const cors = require('cors');
 const session = require('express-session');
 const passport = require('passport');
 const config = require('./config');
+const LocalStrategy = require('passport-local').Strategy;
 const mongoClient = require('mongodb').MongoClient;
 const mongoURI = 'mongodb://localhost:27017/jacobkenning';
-const mandrill = require('node-mandrill')('');
 const app = module.exports = express();
 
 /* APP */
@@ -29,29 +29,31 @@ app.use(session({
 passport.serializeUser((user, done) => { done(null, user); });
 passport.deserializeUser((obj, done) => { done(null, obj); });
 
-/* ENDPOINTS */
-app.post('/send', (req, res) => {
-  var _name = req.body.name;
-  var _email = req.body.email;
-  var _subject = req.body.subject;
-  var _messsage = req.body.message;
-  sendEmail ( _name, _email, _subject, _message );
-  res.status(200).send('sent!');
+passport.use('local', new LocalStrategy(
+  function(username, password, done) {
+    mongoClient.connect(mongoURI, (err, db) => {
+      var collection = db.collection('users');
+      collection.findOne({
+        username: username, password: password
+      }, (err, user) => {
+        if (!err) {
+          done(null, user);
+        } else {
+          return done(err);
+        }
+      });
+    });
+  }
+));
+
+app.post('/auth/local', passport.authenticate('local'), (req, res) => {
+  res.status(200).send(true);
 });
 
-function sendEmail( _name, _email, _subject, _message) {
-  mandrill('/messages/send', {
-    message: {
-      to: [{email: 'jakekenning@gmail.com' , name: _name}],
-      from_email: _email,
-      subject: _subject,
-      text: _message
-    }
-  }, function(error, response){
-    if (error) console.log( error );
-    else console.log(response);
-  });
-}
+app.get('/logout', function(req, res) {
+  req.logout();
+  res.status(200).send(true);
+});
 
 app.listen(app.get('port'), () => {
   console.log('localhost:' + app.get('port'));

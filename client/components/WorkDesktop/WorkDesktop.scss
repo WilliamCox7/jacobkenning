@@ -35,13 +35,12 @@
         -ms-flex-pack: justify;
         justify-content: space-between;
         color: $jakegold;
-        .fa-arrow-left {
+        .icon-arrow-left {
           margin-right: 5px;
+          margin-top: -1px;
         }
-        .fa-arrow-right {
+        .icon-arrow-right {
           margin-left: 5px;
-        }
-        .fa {
           margin-top: -1px;
         }
         p {
@@ -75,6 +74,10 @@
         object-fit: cover;
       }
     }
+    .addphoto {
+      border-radius: 5px;
+      border: solid 1px #eaeaea;
+    }
     .post-info {
       width: 47%;
       height: 200px;
@@ -86,11 +89,30 @@
         &:hover {
           cursor: pointer;
         }
+        input {
+          padding: 10px;
+          border: solid 1px #eaeaea;
+          border-radius: 5px;
+          background: #f9f9f9;
+          width: 100%;
+          box-sizing: border-box;
+        }
       }
       .init-para {
-        color: $contentgray;
+        color: $paragraph;
         padding-bottom: 10px;
         line-height: 22px;
+        textarea {
+          padding: 10px;
+          border: solid 1px #eaeaea;
+          border-radius: 5px;
+          background: #f9f9f9;
+          width: 100%;
+          font-family: Helvetica, sans-serif;
+          resize: none;
+          height: 100px;
+          box-sizing: border-box;
+        }
       }
       .case-link {
         font-family: 'Helvetica Neue';
@@ -137,7 +159,7 @@
           color: $headerblack;
         }
         p {
-          color: $headerblack;
+          color: $paragraph;
           line-height: 22px;
           padding-bottom: 30px;
         }

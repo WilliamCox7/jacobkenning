@@ -76,7 +76,7 @@ class BlogDesktop extends Component {
               <span onClick={this.prev} style={this.props.blogIndex === 0 ? {
                 color: 'gray'
               } : (null)}>
-                <i className="fa fa-arrow-left" aria-hidden="true"></i>
+                <i className="icon-arrow-left"></i>
                 <p>back</p>
               </span>
             </div>
@@ -89,7 +89,7 @@ class BlogDesktop extends Component {
                   color: 'gray'
                 } : (null)}>
                 <p>next</p>
-                <i className="fa fa-arrow-right" aria-hidden="true"></i>
+                <i className="icon-arrow-right"></i>
               </span>
             </div>
           </div>

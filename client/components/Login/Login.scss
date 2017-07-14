@@ -1,0 +1,71 @@
+@import "../../vars.scss";
+
+.Login {
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  .login-container {
+    height: 200px;
+    width: 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: relative;
+    input {
+      margin-bottom: 10px;
+      border: solid 1px #e4e4e4;
+      border-radius: 5px;
+      padding: 10px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    button {
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      position: absolute;
+      bottom: 18px;
+      right: 0;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .logout-container {
+    height: 200px;
+    width: 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+    p {
+      margin-bottom: 10px;
+    }
+    button {
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
